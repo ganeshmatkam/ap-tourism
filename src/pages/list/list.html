@@ -1,0 +1,23 @@
+<ion-header>
+  <ion-navbar color="primary">
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>Categories</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content>
+  <ion-list>
+    <ion-item tappable *ngFor="let cat of categories">
+      <ion-thumbnail item-left>
+        <img src="./assets/categories/{{cat}}.jpg">
+      </ion-thumbnail>
+      <h2>{{cat}}</h2>
+      <p>{{categoryList[cat].length}} videos</p>
+    </ion-item>
+  </ion-list>
+  <div *ngIf="selectedItem" padding>
+    You navigated here from <b>{{selectedItem.title}}</b>
+  </div>
+</ion-content>

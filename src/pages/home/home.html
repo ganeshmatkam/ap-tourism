@@ -1,0 +1,23 @@
+<ion-header>
+  <ion-navbar color="primary">
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>Home</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content>
+  <ion-list>
+    <ion-list-header>
+      Recent Videos
+    </ion-list-header>
+    <ion-item tappable *ngFor="let video of videosList">
+      <ion-thumbnail item-left>
+        <img [src]="video.thumb">
+      </ion-thumbnail>
+      <h2>{{video.title}}</h2>
+      <p>{{video.desc}}</p>
+    </ion-item>
+  </ion-list>
+</ion-content>
