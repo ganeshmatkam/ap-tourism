@@ -2,22 +2,18 @@ import { Injectable } from '@angular/core';
 
 @Injectable()
 export class VideoService {
-    private _videosList: Array<any> = [
-        { title: 'sabari godhavari sangamam', url: 'https://www.youtube.com/watch?v=db3iyUgY4kQ', desc: 'sabari godhavari sangamam. It is one of the tourist spot on the way to papikondalu point route.', category: 'Khammam', thumb: 'https://i.ytimg.com/vi/db3iyUgY4kQ/hqdefault.jpg' },
+    private _videosList: Array<{ title: string, url: string, desc: string, category: string, thumb: string }> = [
+        { title: 'Birla Mandir', url: 'https://www.youtube.com/watch?v=dzkaIGqNXd0', desc: 'Birla Mandir Located Heart of the hyderabad city. It is a Hindu temple, built on a 280 feet high hillock called Naubath Pahad on a 13 acres plot. The construction took 10 years and was opened in 1976 by Swami Ranganathananda of Ramakrishna Mission.', category: 'Hyderabad', thumb: 'https://i.ytimg.com/vi/dzkaIGqNXd0/hqdefault.jpg' },
+        { title: 'Republic day Colours of Telangana secretariat', url: 'https://www.youtube.com/watch?v=mBwfjEfXdhM', desc: 'Telangana secretariat is now colourful with lights. On the eve of republic day.', category: 'Hyderabad', thumb: 'https://i.ytimg.com/vi/mBwfjEfXdhM/hqdefault.jpg' },
+        { title: 'Yadagirigutta', url: 'https://www.youtube.com/watch?v=cMlSK9j92xU', desc: 'Yadagirigutta  Now Turned as yadadri. Yadadri is a popular hindu temple situated on hillock in Yadagirigutta of Yadadri Bhuvanagiri district.  The temple is an abode of Narasimha, an incarnation of Lord Vishnu.', category: 'Nalagonda', thumb: 'https://i.ytimg.com/vi/cMlSK9j92xU/hqdefault.jpg' },
+        { title: 'Historical Golkonda Fort, Hyderabad', url: 'https://www.youtube.com/watch?v=_x7oXqAJ8z8', desc: 'Golkonda original name was Gollakonda. In usage it become a golkonda. Golkonda Fort was first built by the Kakatiya dynasty as part of their western defenses along the lines of the Kondapalli Fort. he city and the fortress were built on a granite hill that is 120 meters (480 ft) high, surrounded by massive battlements.', category: 'Hyderabad', thumb: 'https://i.ytimg.com/vi/_x7oXqAJ8z8/hqdefault.jpg' },
+        { title: 'Outer Ring Road, Hyderabad', url: 'https://www.youtube.com/watch?v=aYd9dbkHrfM', desc: 'Hyderabad outer ring road is a 158 kilometer, 8-lane ring road expressway . With Beautiful greenary cover. journey in this express way give plasure to passengers', category: 'Hyderabad', thumb: 'https://i.ytimg.com/vi/aYd9dbkHrfM/hqdefault.jpg' },
+        { title: 'Hyderabad to vizag Flight journey', url: 'https://www.youtube.com/watch?v=X9UO3kM_uHo', desc: 'Flight journey Hyderabad to visakapatnam, see view from sky.', category: 'Hyderabad', thumb: 'https://i.ytimg.com/vi/X9UO3kM_uHo/hqdefault.jpg' },
         { title: 'Seetamma vari nara cheeralu, parnasala', url: 'https://www.youtube.com/watch?v=Lv7OpqfFQlU', desc: 'One of the important places near parnasala Seethamma vari nara chera point. Here seetha spend some time long back.', category: 'Khammam', thumb: 'https://i.ytimg.com/vi/Lv7OpqfFQlU/hqdefault.jpg' },
         { title: 'Ramayana drusya kavyam, bharachalam', url: 'https://www.youtube.com/watch?v=KPDDwyabOjs', desc: 'Ramayana Drusya kavyam around Bhadrachalam Temple. It shows total history of bhadrachalam Temple.', category: 'Khammam', thumb: 'https://i.ytimg.com/vi/KPDDwyabOjs/hqdefault.jpg' },
         { title: 'Parnasala, Near bhadrachalam', url: 'https://www.youtube.com/watch?v=XNQrkoW4Tcw', desc: 'Parnasala is a village in the Dummugudem mandal in the Khammam district of Telangana, India. The village is accessible by road and boats and is situated 32 km from the temple town of Bhadrachalam.Parnasala, which became a much visited picnic spot in Bhadrachalam is said to be the place where the evil-minded king Ravan abducted Goddess Sita. This place unfolds this part of the epic Ramayana by exhibiting the primary events with beautifully canvassed sculptures of Shri Ram, Sita, Laxman, and Ravan.', category: 'Khammam', thumb: 'https://i.ytimg.com/vi/XNQrkoW4Tcw/hqdefault.jpg' },
         { title: 'Kunavaram forest', url: 'https://www.youtube.com/watch?v=wp0xgtQilbc', desc: 'Kunavaram Forest. Earlier it is in telangana. After bifurcation of state these area went to andhra pradesh. Tourists enjoy this forest environment on the way to pocharam..papikondalu visit point.', category: 'Khammam', thumb: 'https://i.ytimg.com/vi/wp0xgtQilbc/hqdefault.jpg' },
-        { title: 'Nara lokesh Shocking swearing in as mlc', url: 'https://www.youtube.com/watch?v=iXMDiDv4y1Y', desc: 'Nara lokesh Failed to swearing in properly. He is unable to pronounce some telugu words. Tdp leaders also shocked lokesh language .', category: 'Others', thumb: 'https://i.ytimg.com/vi/iXMDiDv4y1Y/hqdefault.jpg' },
-        { title: 'Fort Aguada,Goa', url: 'https://www.youtube.com/watch?v=HXypi7jVK8M', desc: 'Fort Aguada and its lighthouse is a well-preserved seventeenth-century Portuguese fort standing in Goa, India, on Sinquerim Beach, overlooking the Arabian Sea. he fort was constructed in 1612 to guard against the Dutch and the Marathas. It was a reference point for the vessels coming from Europe at that time. This old Portuguese fort stands on the beach south of Candolim, at the shore of the Mandovi River.', category: 'Goa', thumb: 'https://i.ytimg.com/vi/HXypi7jVK8M/hqdefault.jpg' },
-        { title: 'Goa Casinos', url: 'https://www.youtube.com/watch?v=NbvhO1nd-8o', desc: 'Goa Casinos. In India Only state goa have casinos. The Casino Goa is a live casino located offshore in Panaji in Goa. The casino is located on a yacht, the M.V. Caravela, anchored in the River Mandovi. The casino vessel worth is 110 million Rupees and is owned by the Advani Pleasure Cruise Co Ltd as a joint venture between the company and Casinos Austria.', category: 'Goa', thumb: 'https://i.ytimg.com/vi/NbvhO1nd-8o/hqdefault.jpg' },
-        { title: 'Coco Beach, Goa', url: 'https://www.youtube.com/watch?v=YlSojRKndfo', desc: 'Coco beach is situated at the mouth of the Nerul River on the Mandovi Estuary, directly opposite Panaji. This beach is often considered as the abridged gateway between Candolim and Nerul. The thriving fishing village has gained prominence in recent years with its exquisite location and popularity with foreign tourists.', category: 'Goa', thumb: 'https://i.ytimg.com/vi/YlSojRKndfo/hqdefault.jpg' },
-        { title: 'Dolphin trip in Goa', url: 'https://www.youtube.com/watch?v=eOwBTRzqCR4', desc: 'Dolphin trip in Goa: Varca, located in South Goa in Goa is very popular for dolphin spotting trips. Several boat trips are arranged for this event. While spotting a dolphin isn’t guaranteed on the boat ride, the boat trip itself is quite enjoyable.', category: 'Goa', thumb: 'https://i.ytimg.com/vi/eOwBTRzqCR4/hqdefault.jpg' },
-        { title: 'Flight landing in goa airport', url: 'https://www.youtube.com/watch?v=fjNRDDpkHpQ', desc: 'Goa International Airport, also known as the Dabolim airport, is the sole airport in the state of Goa, located in the city of Dabolim in Goa, India. Every year lakhs of tourists arrive to here.', category: 'Goa', thumb: 'https://i.ytimg.com/vi/fjNRDDpkHpQ/hqdefault.jpg' },
-        { title: 'Candolim Beach , Goa', url: 'https://www.youtube.com/watch?v=_4rj-EsCz0w', desc: 'Candolim Beach surround a 19th-century lighthouse. The whitewashed, centuries-old Church of St. Lawrence stands on a nearby hill.  In the south, the sturdy walls of Aguada Fort, built in the early 1600s under Portuguese colonial rule.', category: 'Goa', thumb: 'https://i.ytimg.com/vi/_4rj-EsCz0w/hqdefault.jpg' },
-        { title: 'Historical Golkonda Fort, Hyderabad', url: 'https://www.youtube.com/watch?v=_x7oXqAJ8z8', desc: 'Golkonda original name was Gollakonda. In usage it become a golkonda. Golkonda Fort was first built by the Kakatiya dynasty as part of their western defenses along the lines of the Kondapalli Fort. he city and the fortress were built on a granite hill that is 120 meters (480 ft) high, surrounded by massive battlements.', category: 'Hyderabad', thumb: 'https://i.ytimg.com/vi/_x7oXqAJ8z8/hqdefault.jpg' },
-        { title: 'Outer Ring Road, Hyderabad', url: 'https://www.youtube.com/watch?v=aYd9dbkHrfM', desc: 'Hyderabad outer ring road is a 158 kilometer, 8-lane ring road expressway . With Beautiful greenary cover. journey in this express way give plasure to passengers', category: 'Hyderabad', thumb: 'https://i.ytimg.com/vi/aYd9dbkHrfM/hqdefault.jpg' },
-        { title: 'Hyderabad to vizag Flight journey', url: 'https://www.youtube.com/watch?v=X9UO3kM_uHo', desc: 'Flight journey Hyderabad to visakapatnam, see view from sky.', category: 'Hyderabad', thumb: 'https://i.ytimg.com/vi/X9UO3kM_uHo/hqdefault.jpg' },
+
     ];
 
     private _videosCategories: Array<any> = [
@@ -26,8 +22,6 @@ export class VideoService {
         "Khammam",
         "Mahabubnagar",
         "Nalagonda",
-        "Goa",
-        "Others"
     ]
 
     constructor() {
@@ -50,7 +44,7 @@ export class VideoService {
     public getEmbedUrl(videoUrl: string): string {
         let videoId = videoUrl.split('//').pop().split('/').pop().split('=').pop();
         console.log(videoId);
-        var thumbUrl = 'https://www.youtube.com/embed/' + videoId ;
+        var thumbUrl = 'https://www.youtube.com/embed/' + videoId;
         return thumbUrl;
     }
 }

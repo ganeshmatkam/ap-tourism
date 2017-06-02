@@ -3,21 +3,23 @@
     <button ion-button menuToggle>
       <ion-icon name="menu"></ion-icon>
     </button>
-    <ion-title><img src="assets/icon/logo.png" style="width:42%;margin-top:6px;"></ion-title>
+    <ion-title mode="ios"><img src="assets/icon/logo.png"></ion-title>
   </ion-navbar>
 </ion-header>
 
 <ion-content>
   <ion-list>
-    <ion-list-header>
-      Recent Videos
+    <ion-list-header style="margin-bottom: 6px;">
+      Popular Videos
     </ion-list-header>
-    <ion-item tappable  (click)="videoTapped(video)" *ngFor="let video of videosList">
-      <ion-thumbnail item-left>
-        <img [src]="video.thumb">
-      </ion-thumbnail>
-      <h2>{{video.title}}</h2>
-      <p>{{video.desc}}</p>
-    </ion-item>
+    <div *ngFor="let video of videosList;let i=index">
+      <ion-item tappable (click)="videoTapped(video)" *ngIf="i<6">
+        <ion-thumbnail item-left>
+          <img [src]="video.thumb">
+        </ion-thumbnail>
+        <h2>{{video.title}}</h2>
+        <p>{{video.desc}}</p>
+      </ion-item>
+    </div>
   </ion-list>
 </ion-content>
