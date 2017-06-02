@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { NavController, NavParams } from 'ionic-angular';
 
 import { VideoService } from '../../providers/_providers';
+import { VideoDetails } from '../../components/video-details/video-details';
 
 @Component({
   selector: 'page-list',
@@ -9,12 +10,13 @@ import { VideoService } from '../../providers/_providers';
   providers: [VideoService],
 })
 export class ListPage {
-   public videosList: Array<any>;
+  public videosList: Array<any>;
   selectedItem: any;
   icons: string[];
-  items: Array<{title: string, note: string, icon: string}>;
+  items: Array<{ title: string, note: string, icon: string }>;
 
   categoryGrid: Array<any>;
+  categoryBox: Array<any>;
   categories: Array<String>;
   categoryList: any;
 
@@ -23,13 +25,13 @@ export class ListPage {
     this.selectedItem = navParams.get('item');
   }
 
-  makeGrid(){
+  makeGrid() {
     this.categoryGrid = [];
     let categories = [];
 
-    for(let v of this.videosList){
+    for (let v of this.videosList) {
       let cix = categories.indexOf(v.category);
-      if( cix === -1) {
+      if (cix === -1) {
         categories.push(v.category);
         this.categoryGrid.push([v]);
       } else {
@@ -37,13 +39,35 @@ export class ListPage {
       }
     }
     this.categoryList = {};
-    for(let c of this.categories){
-      this.categoryList[c+''] = [];
+    for (let c of this.categories) {
+      this.categoryList[c + ''] = [];
     }
-    for(let o of this.categoryGrid){
+
+    for (let o of this.categoryGrid) {
       this.categoryList[o[0].category] = o;
     }
-    console.log(this.categoryList, this.categoryList['Khammam']);
+    console.log(this.categoryList);
+    let i = 0;
+    let temp = [];
+    this.categoryBox = [];
+    for (let o in this.categoryList) {
+      if ((i) % 2 === 0) {
+        this.categoryBox.push(temp);
+        temp = [{
+          title: o,
+          count: this.categoryList[o].length
+        }];
+      } else {
+        temp.push({
+          title: o,
+          count: this.categoryList[o].length
+        });
+      }
+      i++;
+    }
+    if (temp.length > 0) {
+      this.categoryBox.push(temp);
+    }
   }
 
   itemTapped(item) {
@@ -53,7 +77,15 @@ export class ListPage {
       item: item
     });
   }
-  public loadVideos(){
+
+  videoTapped(video) {
+    console.log(video);
+    this.navCtrl.push(VideoDetails, {
+      video: video
+    });
+  }
+
+  public loadVideos() {
     this.videosList = this.videoSvc.videosList;
     this.makeGrid();
   }
@@ -62,11 +94,11 @@ export class ListPage {
     this.categories = this.videoSvc.videosCategories;
   }
 
-  public getVideoThumb(url: string): string{
+  public getVideoThumb(url: string): string {
     return this.videoSvc.getVideoThumb(url);
   }
 
-  ngOnInit(){
+  ngOnInit() {
     this.loadCategories();
     this.loadVideos();
   }

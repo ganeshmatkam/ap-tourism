@@ -1,0 +1,25 @@
+<ion-header>
+  <ion-navbar color="primary">
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>
+      <span> Video Details   </span>
+    </ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content>
+  <ion-card (click)="playVideo()" tappable>
+    <div class="playIcon" style="width:96%;position:absolute;text-align:center;margin-top:100px;"><ion-icon color="primary" style="font-size:52px;color:#FF9800;" name="play"></ion-icon></div>
+    <img [src]="currentVideo.thumb" />
+    <ion-card-content>
+      <ion-card-title>
+        {{currentVideo.title}}
+      </ion-card-title>
+      <p>
+        {{currentVideo.desc}}
+      </p>
+    </ion-card-content>
+  </ion-card>
+</ion-content>

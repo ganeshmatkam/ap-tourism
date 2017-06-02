@@ -1,6 +1,4 @@
 // http://ionicframework.com/docs/v2/theming/
-
-
 // App Global Sass
 // --------------------------------------------------
 // Put style rules here that you want to apply globally. These
@@ -15,10 +13,24 @@
 // for the .md, .ios, or .wp mode classes. The mode class is
 // automatically applied to the <body> element in the app.
 .noData {
-    text-align:center;
+    text-align: center;
     position: absolute;
     top: 30%;
     width: 100%;
     color: #afa9a9;
     font-size: 17px;
+}
+
+ion-card.card {
+    .playIcon {
+        color: white;
+        position: absolute;
+        font-size: 32px;
+        width: 100%;
+        margin-top: 40px;
+        ion-icon.icon {
+            font-size: 32px;
+            color: map-get($colors, primary);
+        }
+    }
 }

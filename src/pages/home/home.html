@@ -3,7 +3,7 @@
     <button ion-button menuToggle>
       <ion-icon name="menu"></ion-icon>
     </button>
-    <ion-title>Home</ion-title>
+    <ion-title><img src="assets/icon/logo.png" style="width:42%;margin-top:6px;"></ion-title>
   </ion-navbar>
 </ion-header>
 
@@ -12,7 +12,7 @@
     <ion-list-header>
       Recent Videos
     </ion-list-header>
-    <ion-item tappable *ngFor="let video of videosList">
+    <ion-item tappable  (click)="videoTapped(video)" *ngFor="let video of videosList">
       <ion-thumbnail item-left>
         <img [src]="video.thumb">
       </ion-thumbnail>
