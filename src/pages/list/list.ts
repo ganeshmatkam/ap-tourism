@@ -46,8 +46,9 @@ export class ListPage {
     console.log(this.categoryList, this.categoryList['Khammam']);
   }
 
-  itemTapped(event, item) {
+  itemTapped(item) {
     // That's right, we're pushing to ourselves!
+    console.log(item);
     this.navCtrl.push(ListPage, {
       item: item
     });

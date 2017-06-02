@@ -3,13 +3,16 @@
     <button ion-button menuToggle>
       <ion-icon name="menu"></ion-icon>
     </button>
-    <ion-title>Categories</ion-title>
+    <ion-title>
+      <span [hidden]="selectedItem"> Categories    </span>
+      <span [hidden]="!selectedItem">{{selectedItem}}</span>
+    </ion-title>
   </ion-navbar>
 </ion-header>
 
 <ion-content>
-  <ion-list>
-    <ion-item tappable *ngFor="let cat of categories">
+  <ion-list *ngIf="!selectedItem">
+    <ion-item tappable (click)="itemTapped(cat)" *ngFor="let cat of categories">
       <ion-thumbnail item-left>
         <img src="./assets/categories/{{cat}}.jpg">
       </ion-thumbnail>
@@ -17,7 +20,19 @@
       <p>{{categoryList[cat].length}} videos</p>
     </ion-item>
   </ion-list>
-  <div *ngIf="selectedItem" padding>
-    You navigated here from <b>{{selectedItem.title}}</b>
+  <div *ngIf="selectedItem">
+    <ion-list>
+      <ion-item tappable *ngFor="let video of categoryList[selectedItem]">
+        <ion-thumbnail item-left>
+          <img [src]="video.thumb">
+        </ion-thumbnail>
+        <h2>{{video.title}}</h2>
+        <p>{{video.desc}}</p>
+      </ion-item>
+     
+    </ion-list>
+     <div class="noData" *ngIf="categoryList[selectedItem].length === 0">
+        No Videos Found
+      </div>
   </div>
 </ion-content>
