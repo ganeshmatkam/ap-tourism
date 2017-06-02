@@ -47,4 +47,10 @@ export class VideoService {
         var thumbUrl = 'http://img.youtube.com/vi/' + videoId + '/1.jpg';
         return thumbUrl;
     }
+    public getEmbedUrl(videoUrl: string): string {
+        let videoId = videoUrl.split('//').pop().split('/').pop().split('=').pop();
+        console.log(videoId);
+        var thumbUrl = 'https://www.youtube.com/embed/' + videoId ;
+        return thumbUrl;
+    }
 }

@@ -13,7 +13,7 @@ export class Tabs {
 
   homePage: Component;
   listPage: Component;
-  selectedIndex = 1;
+  selectedIndex = 0;
 
   pages = ['HomePage', 'ListPage']
 

@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { NavController, NavParams } from 'ionic-angular';
 import { StreamingMedia, StreamingVideoOptions } from '@ionic-native/streaming-media';
+import { DomSanitizer } from '@angular/platform-browser';
 
 import { VideoService } from '../../providers/_providers';
 
@@ -23,6 +24,7 @@ export class VideoDetails {
     public navCtrl: NavController,
     public navParams: NavParams,
     private videoSvc: VideoService,
+    public sanitizer: DomSanitizer,
     private streamingMedia: StreamingMedia) {
     this.currentVideo = navParams.get('video');
   }
@@ -32,6 +34,10 @@ export class VideoDetails {
       errorCallback: (e) => { console.log('Error streaming') },
       orientation: 'landscape'
     };
-    this.streamingMedia.playVideo(this.currentVideo.url, options);
+    this.streamingMedia.playVideo(this.videoSvc.getEmbedUrl(this.currentVideo.url), options);
+  }
+  public getEmbedUrl() {
+    let url = this.sanitizer.bypassSecurityTrustResourceUrl(this.videoSvc.getEmbedUrl(this.currentVideo.url));
+    return url;
   }
 }
