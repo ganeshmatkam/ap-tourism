@@ -3,25 +3,20 @@ import { Injectable } from '@angular/core';
 @Injectable()
 export class VideoService {
     private _videosList: Array<{ title: string, url: string, desc: string, category: string, thumb: string }> = [
-        { title: 'Birla Mandir', url: 'https://www.youtube.com/watch?v=dzkaIGqNXd0', desc: 'Birla Mandir Located Heart of the hyderabad city. It is a Hindu temple, built on a 280 feet high hillock called Naubath Pahad on a 13 acres plot. The construction took 10 years and was opened in 1976 by Swami Ranganathananda of Ramakrishna Mission.', category: 'Hyderabad', thumb: 'https://i.ytimg.com/vi/dzkaIGqNXd0/hqdefault.jpg' },
-        { title: 'Republic day Colours of Telangana secretariat', url: 'https://www.youtube.com/watch?v=mBwfjEfXdhM', desc: 'Telangana secretariat is now colourful with lights. On the eve of republic day.', category: 'Hyderabad', thumb: 'https://i.ytimg.com/vi/mBwfjEfXdhM/hqdefault.jpg' },
-        { title: 'Yadagirigutta', url: 'https://www.youtube.com/watch?v=cMlSK9j92xU', desc: 'Yadagirigutta  Now Turned as yadadri. Yadadri is a popular hindu temple situated on hillock in Yadagirigutta of Yadadri Bhuvanagiri district.  The temple is an abode of Narasimha, an incarnation of Lord Vishnu.', category: 'Nalagonda', thumb: 'https://i.ytimg.com/vi/cMlSK9j92xU/hqdefault.jpg' },
-        { title: 'Historical Golkonda Fort, Hyderabad', url: 'https://www.youtube.com/watch?v=_x7oXqAJ8z8', desc: 'Golkonda original name was Gollakonda. In usage it become a golkonda. Golkonda Fort was first built by the Kakatiya dynasty as part of their western defenses along the lines of the Kondapalli Fort. he city and the fortress were built on a granite hill that is 120 meters (480 ft) high, surrounded by massive battlements.', category: 'Hyderabad', thumb: 'https://i.ytimg.com/vi/_x7oXqAJ8z8/hqdefault.jpg' },
-        { title: 'Outer Ring Road, Hyderabad', url: 'https://www.youtube.com/watch?v=aYd9dbkHrfM', desc: 'Hyderabad outer ring road is a 158 kilometer, 8-lane ring road expressway . With Beautiful greenary cover. journey in this express way give plasure to passengers', category: 'Hyderabad', thumb: 'https://i.ytimg.com/vi/aYd9dbkHrfM/hqdefault.jpg' },
-        { title: 'Hyderabad to vizag Flight journey', url: 'https://www.youtube.com/watch?v=X9UO3kM_uHo', desc: 'Flight journey Hyderabad to visakapatnam, see view from sky.', category: 'Hyderabad', thumb: 'https://i.ytimg.com/vi/X9UO3kM_uHo/hqdefault.jpg' },
-        { title: 'Seetamma vari nara cheeralu, parnasala', url: 'https://www.youtube.com/watch?v=Lv7OpqfFQlU', desc: 'One of the important places near parnasala Seethamma vari nara chera point. Here seetha spend some time long back.', category: 'Khammam', thumb: 'https://i.ytimg.com/vi/Lv7OpqfFQlU/hqdefault.jpg' },
-        { title: 'Ramayana drusya kavyam, bharachalam', url: 'https://www.youtube.com/watch?v=KPDDwyabOjs', desc: 'Ramayana Drusya kavyam around Bhadrachalam Temple. It shows total history of bhadrachalam Temple.', category: 'Khammam', thumb: 'https://i.ytimg.com/vi/KPDDwyabOjs/hqdefault.jpg' },
-        { title: 'Parnasala, Near bhadrachalam', url: 'https://www.youtube.com/watch?v=XNQrkoW4Tcw', desc: 'Parnasala is a village in the Dummugudem mandal in the Khammam district of Telangana, India. The village is accessible by road and boats and is situated 32 km from the temple town of Bhadrachalam.Parnasala, which became a much visited picnic spot in Bhadrachalam is said to be the place where the evil-minded king Ravan abducted Goddess Sita. This place unfolds this part of the epic Ramayana by exhibiting the primary events with beautifully canvassed sculptures of Shri Ram, Sita, Laxman, and Ravan.', category: 'Khammam', thumb: 'https://i.ytimg.com/vi/XNQrkoW4Tcw/hqdefault.jpg' },
-        { title: 'Kunavaram forest', url: 'https://www.youtube.com/watch?v=wp0xgtQilbc', desc: 'Kunavaram Forest. Earlier it is in telangana. After bifurcation of state these area went to andhra pradesh. Tourists enjoy this forest environment on the way to pocharam..papikondalu visit point.', category: 'Khammam', thumb: 'https://i.ytimg.com/vi/wp0xgtQilbc/hqdefault.jpg' },
-
+        { title: 'Sabari Godhavari Sangamam', url: 'https://www.youtube.com/watch?v=db3iyUgY4kQ', desc: 'sabari godhavari sangamam. It is one of the tourist spot on the way to papikondalu point route.', category: 'Nellore', thumb: 'https://i.ytimg.com/vi/db3iyUgY4kQ/hqdefault.jpg' },
+        { title: 'Rushikonda Beach', url: 'https://www.youtube.com/watch?v=rr98tHzGhtA', desc: 'Rushikonda Beach is located in Visakhapatnam on the coast of Bay of Bengal in the Indian state of Andhra Pradesh. The beach is maintained by the state tourism board, APTDC. At hill top tourisim dept guest houses give pleasure to customers.', category: 'Nellore', thumb: 'https://i.ytimg.com/vi/rr98tHzGhtA/hqdefault.jpg' },
+        { title: 'Kailasagiri', url: 'https://www.youtube.com/watch?v=So4pO3iplfI', desc: 'Kailasagiri is a hilltop park in the city of Visakhapatnam. The park was developed by Visakhapatnam Urban Development Authority comprising 380 acres of land covered with flora and tropical trees. Now tourists can enjoy amravathi train ride in kailasagiri.', category: 'Vishakapatnam', thumb: 'https://i.ytimg.com/vi/So4pO3iplfI/hqdefault.jpg' },
+        { title: 'RK Beach', url: 'https://www.youtube.com/watch?v=Wm4VPG8Kc10', desc: 'The Rama Krishna Mission Beach is one of the most popular beach parks in Visakhapatnam, Andhra Pradesh. It gets its name from the Ramakrishna Mission ashrama across the Beach Road from the park. It is main attraction to vizag city.', category: 'Vishakapatnam', thumb: 'https://i.ytimg.com/vi/Wm4VPG8Kc10/hqdefault.jpg' },
+        { title: 'Galikonda View Point, Araku', url: 'https://www.youtube.com/watch?v=IiPhq2kS4i8', desc: 'Galikonda Viewpoint Is The Highest Point Of Vishakapatnam District, Which Gives a Spectacular View Of a Lush Green Valley, Hills. It is one of most important tourists attaraction in araku.', category: 'Vishakapatnam', thumb: 'https://i.ytimg.com/vi/IiPhq2kS4i8/hqdefault.jpg' },
+        { title: 'Bheemili Beach', url: 'https://www.youtube.com/watch?v=GpW01w2vVAI', desc: 'Bheemili Beach is located at the origin of the Gosthani River, at a distance of 24 km from Visakhapatnam in Visakhapatnam district of the Indian state of Andhra Pradesh. The beach reflects the British and Dutch settlements.', category: 'Vishakapatnam', thumb: 'https://i.ytimg.com/vi/GpW01w2vVAI/hqdefault.jpg' },
+        { title: 'Borra caves part 2', url: 'https://www.youtube.com/watch?v=sQ4cv0A2Jvk', desc: 'Borra caves new look. colourful lighting adds new attraction to historical caves. Tourists high turnout to this place.', category: 'Vishakapatnam', thumb: 'https://i.ytimg.com/vi/sQ4cv0A2Jvk/hqdefault.jpg' },
     ];
 
     private _videosCategories: Array<any> = [
-        "Warangal",
-        "Hyderabad",
-        "Khammam",
-        "Mahabubnagar",
-        "Nalagonda",
+        "Amaravati",
+        "Nellore",
+        "Vijayawada",
+        "Vishakapatnam"
     ]
 
     constructor() {
